@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 :root {
@@ -10,5 +10,5 @@
   --secondary-green: #8fa655;
   --tertiary-green: #90a787;
   --primary-gray: #c3d0da;
-  --primary-brown: #a47444;
+  --primary-brown: #945618;
 }

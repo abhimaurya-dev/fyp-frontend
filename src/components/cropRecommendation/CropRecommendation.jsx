@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import classes from "./CropRecommendation.module.css";
+import PredictModal from "../predictModal/PredictModal";
 
 const CropRecommendation = (props) => {
   const onSubmitHandler = async (e) => {
@@ -20,10 +21,15 @@ const CropRecommendation = (props) => {
       });
       if (prediction) {
         setPredictedCrop(prediction.data.predicted_crop);
+        setIsModalActive(true);
       }
     } catch (error) {
       console.log(error.message);
     }
+  };
+
+  const onClickModalHandler = () => {
+    setIsModalActive(false);
   };
 
   const [nValue, setNValue] = useState(0);
@@ -34,56 +40,66 @@ const CropRecommendation = (props) => {
   const [rainfall, setRainfall] = useState(0);
   const [pHValue, setPHValue] = useState(0);
   const [predictedCrop, setPredictedCrop] = useState("");
+  const [isModalActive, setIsModalActive] = useState(false);
+
   return (
-    <div className={classes.formContainer}>
-      <form className={classes.form}>
-        <label>N Value</label>
-        <input
-          type="number"
-          className={classes.value}
-          onChange={(e) => setNValue(parseFloat(e.target.value))}
+    <>
+      <div className={classes.formContainer}>
+        <form className={classes.form}>
+          <label>N Value</label>
+          <input
+            type="number"
+            className={classes.value}
+            onChange={(e) => setNValue(parseFloat(e.target.value))}
+          />
+          <label>P Value</label>
+          <input
+            type="number"
+            className={classes.value}
+            onChange={(e) => setPValue(parseFloat(e.target.value))}
+          />
+          <label>K Value</label>
+          <input
+            type="number"
+            className={classes.value}
+            onChange={(e) => setKValue(parseFloat(e.target.value))}
+          />
+          <label>Humidity</label>
+          <input
+            type="number"
+            className={classes.value}
+            onChange={(e) => setHumidity(parseFloat(e.target.value))}
+          />
+          <label>Temprature</label>
+          <input
+            type="number"
+            className={classes.value}
+            onChange={(e) => setTemprature(parseFloat(e.target.value))}
+          />
+          <label>pH Value</label>
+          <input
+            type="number"
+            className={classes.value}
+            onChange={(e) => setPHValue(parseFloat(e.target.value))}
+          />
+          <label>Rainfall</label>
+          <input
+            type="number"
+            className={classes.value}
+            onChange={(e) => setRainfall(parseFloat(e.target.value))}
+          />
+          <button className={classes.btn} onClick={onSubmitHandler}>
+            Get Recommendation
+          </button>
+        </form>
+      </div>
+      {isModalActive && (
+        <PredictModal
+          predictedCrop={predictedCrop}
+          onClickHandler={onClickModalHandler}
         />
-        <label>P Value</label>
-        <input
-          type="number"
-          className={classes.value}
-          onChange={(e) => setPValue(parseFloat(e.target.value))}
-        />
-        <label>K Value</label>
-        <input
-          type="number"
-          className={classes.value}
-          onChange={(e) => setKValue(parseFloat(e.target.value))}
-        />
-        <label>Humidity</label>
-        <input
-          type="number"
-          className={classes.value}
-          onChange={(e) => setHumidity(parseFloat(e.target.value))}
-        />
-        <label>Temprature</label>
-        <input
-          type="number"
-          className={classes.value}
-          onChange={(e) => setTemprature(parseFloat(e.target.value))}
-        />
-        <label>pH Value</label>
-        <input
-          type="number"
-          className={classes.value}
-          onChange={(e) => setPHValue(parseFloat(e.target.value))}
-        />
-        <label>Rainfall</label>
-        <input
-          type="number"
-          className={classes.value}
-          onChange={(e) => setRainfall(parseFloat(e.target.value))}
-        />
-        <button className={classes.btn} onClick={onSubmitHandler}>
-          Get Recommendation
-        </button>
-      </form>
-    </div>
+      )}
+    </>
   );
 };
 

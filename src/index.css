@@ -2,4 +2,13 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+:root {
+  --primary-green: #4a682c;
+  --secondary-green: #8fa655;
+  --tertiary-green: #90a787;
+  --primary-gray: #c3d0da;
+  --primary-brown: #a47444;
 }

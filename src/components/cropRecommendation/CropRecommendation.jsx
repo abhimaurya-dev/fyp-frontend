@@ -37,48 +37,48 @@ const CropRecommendation = (props) => {
   return (
     <div className={classes.formContainer}>
       <form className={classes.form}>
+        <label>N Value</label>
         <input
           type="number"
           className={classes.value}
           onChange={(e) => setNValue(parseFloat(e.target.value))}
         />
-        <label>N Value</label>
+        <label>P Value</label>
         <input
           type="number"
           className={classes.value}
           onChange={(e) => setPValue(parseFloat(e.target.value))}
         />
-        <label>P Value</label>
+        <label>K Value</label>
         <input
           type="number"
           className={classes.value}
           onChange={(e) => setKValue(parseFloat(e.target.value))}
         />
-        <label>K Value</label>
+        <label>Humidity</label>
         <input
           type="number"
           className={classes.value}
           onChange={(e) => setHumidity(parseFloat(e.target.value))}
         />
-        <label>Humidity</label>
+        <label>Temprature</label>
         <input
           type="number"
           className={classes.value}
           onChange={(e) => setTemprature(parseFloat(e.target.value))}
         />
-        <label>Temprature</label>
+        <label>pH Value</label>
         <input
           type="number"
           className={classes.value}
           onChange={(e) => setPHValue(parseFloat(e.target.value))}
         />
-        <label>pH Value</label>
+        <label>Rainfall</label>
         <input
           type="number"
           className={classes.value}
           onChange={(e) => setRainfall(parseFloat(e.target.value))}
         />
-        <label>Rainfall</label>
         <button className={classes.btn} onClick={onSubmitHandler}>
           Get Recommendation
         </button>

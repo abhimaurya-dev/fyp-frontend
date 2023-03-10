@@ -1,0 +1,27 @@
+.formContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  /* background-color: red; */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  width: 30rem;
+  border: 0.1rem solid black;
+  /* background-color: blue; */
+}
+
+.value {
+  margin-top: 1rem;
+  height: 2rem;
+}
+
+.btn {
+  margin-top: 2rem;
+  padding: 1rem;
+}

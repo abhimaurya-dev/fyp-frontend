@@ -35,7 +35,7 @@ const CropRecommendation = (props) => {
   const [pHValue, setPHValue] = useState(0);
   const [predictedCrop, setPredictedCrop] = useState("");
   return (
-    <div className={classes["form-container"]}>
+    <div className={classes.formContainer}>
       <form className={classes.form}>
         <input
           type="number"
